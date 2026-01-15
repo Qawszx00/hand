@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手語考試與圖示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .btn-container {
+            margin-top: 30px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 35px;
+            margin: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            color: #e7e5e5;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #exam-btn {
+            background-color: #f0ad4e; /* 橘色 */
+        }
+        #icon-btn {
+            background-color: #5cb85c; /* 綠色 */
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>手語考試與圖示</h1>
+    <p>請選擇下一步操作：</p>
+
+    <div class="btn-container">
+        <a href="{{ url_for('start') }}" class="button" id="exam-btn">📝 手語考試</a>
+        
+        <a href="{{ url_for('tech') }}" class="button" id="icon-btn">🖼️ 手語圖示</a>
+    </div>
+
+    <br><br>
+<div class="navigation">
+        <a href="{{ url_for('index') }}" class="button nav-link" style="color: black;">🏠 返回首頁</a> 
+    </div>
+
+</body>
+</html>

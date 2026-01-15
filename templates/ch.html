@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手語轉換介面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        #result-text {
+            width: 90%;
+            height: 150px;
+            padding: 10px;
+            margin-top: 20px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            resize: vertical; /* 允許垂直調整大小 */
+        }
+        .action-btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s;
+        }
+        .action-btn:hover {
+            background-color: #0056b3;
+        }
+        .nav-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #007bff;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>手語轉換介面</h1>
+        
+        <button class="action-btn" onclick="simulateConversion()">連結</button>
+        
+        <p>轉換後的文字將呈現在下方：</p>
+        
+        <textarea id="result-text" readonly placeholder="此處將呈現轉換後的文字..."></textarea>
+        
+        <a href="{{ url_for('index') }}" class="nav-link">🔙 返回首頁</a>
+    </div>
+
+    <script>
+        function simulateConversion() {
+            // 獲取文字框元素
+            const textarea = document.getElementById('result-text');
+            
+            // 🎯 在實際應用中，您會在這裡發送手語影像數據到伺服器進行處理
+            
+            // 這裡我們只是模擬一個轉換結果
+            const simulatedText = "這是一個模擬的手語轉換結果。";
+            
+            // 將結果顯示在文字框中
+            textarea.value = simulatedText;
+            
+            // 彈出訊息 (可選，提示使用者操作已完成)
+            alert("轉換成功！請查看下方文字框。");
+        }
+    </script>
+
+</body>
+</html>

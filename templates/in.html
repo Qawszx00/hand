@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手語教學與考試系統</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 80px;
+        }
+        .btn-container {
+            margin-top: 30px;
+        }
+        button {
+            padding: 12px 28px;
+            margin: 10px;
+            font-size: 18px;
+            border: none;
+            border-radius: 6px;
+            color: #fff;
+            cursor: pointer;
+        }
+        #teaching-btn {
+            background-color: #007bff;
+        }
+        #exam-btn {
+            background-color: #28a745;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>手語教學與考試系統</h1>
+    <p>請選擇您要進行的操作：</p>
+
+    
+<div class="btn-container">
+    <a href="{{ url_for('teaching') }}">
+    <button id="teaching-btn">👋 手語轉換</button>
+</a>
+
+    <a href="{{ url_for('exam') }}">
+    <button id="exam-btn">📝 手語測驗</button>
+</a>
+</div>
+</body>
+</html>

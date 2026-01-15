@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手語教學 - 圖示選單</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        .back-btn {
+            margin-bottom: 20px;
+            padding: 8px 16px;
+            font-size: 14px;
+            border-radius: 4px;
+            border: 1px solid #666;
+            background-color: #f5f5f5;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* 小方格排版 */
+       .grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+        }
+
+        .cell {
+        cursor: pointer;
+        }
+
+        .cell img {
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.2s;
+        }
+
+        .cell img:hover {
+        transform: scale(1.05);
+        }
+
+/* Modal */
+        .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+        }
+
+        .modal-content {
+        background: #fff;
+        padding: 20px;
+        display: flex;
+        gap: 20px;
+         max-width: 80%;
+        border-radius: 10px;
+        }
+
+        .modal-content img {
+         max-width: 400px;
+        border-radius: 8px;
+        }
+
+        #modal-text {
+        max-width: 300px;
+        font-size: 16px;
+        line-height: 1.6;
+        text-align: center;
+        display: flex;             
+        align-items: center;       
+        justify-content: center; 
+        }
+        .icon {
+            width: 150px;
+            height: 150px;
+            object-fit: contain; /* 不變形 */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>手語教學</h1>
+    <p>之後可以在每個小方格放圖示或手語圖片。</p>
+
+
+    <div class="grid">
+  <div class="cell" onclick="openModal(1)">
+    <img src="{{ url_for('static', filename='1.jpg') }}" alt="數字1" class="icon">
+  </div>
+  <div class="cell" onclick="openModal(2)">
+    <img src="{{ url_for('static', filename='2.jpg') }}" alt="數字2" class="icon">
+  </div>
+  <div class="cell" onclick="openModal(3)">
+    <img src="{{ url_for('static', filename='3.jpg') }}" alt="圖示3" class="icon">
+  </div>
+  <div class="cell" onclick="openModal(4)">
+    <img src="{{ url_for('static', filename='4.jpg') }}" alt="圖示4" class="icon">
+  </div>
+  <div class="cell" onclick="openModal(5)">
+    <img src="{{ url_for('static', filename='5.jpg') }}" alt="圖示5" class="icon">
+  </div>
+</div>
+
+<!-- 彈出視窗 -->
+<div id="modal" class="modal" onclick="closeModal()">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <img id="modal-img" src="">
+    <div id="modal-text"></div>
+  </div>
+</div>
+</br>
+
+<script>
+  const imageData = {
+    1: {
+      img: "{{ url_for('static', filename='1.jpg') }}",
+      text: "手語中代表數字1的意思"
+    },
+    2: {
+      img: "{{ url_for('static', filename='2.jpg') }}",
+      text: "手語中代表數字2的意思。"
+    },
+    3: {
+      img: "{{ url_for('static', filename='3.jpg') }}",
+      text: "這是第三個圖片，表示數字3的意思。"
+     },
+    4: {
+      img: "{{ url_for('static', filename='4.jpg') }}",
+      text: "這是第四個圖片，表示 WWW 的意思。"
+     },
+    5: {
+      img: "{{ url_for('static', filename='5.jpg') }}",
+      text: "這是第五個圖片，表示 XXX 的意思。"
+     }
+    // 繼續加
+    };
+
+    function openModal(id) {
+     document.getElementById("modal-img").src = imageData[id].img;
+     document.getElementById("modal-text").innerText = imageData[id].text;
+     document.getElementById("modal").style.display = "flex";
+    }
+
+    function closeModal() {
+        document.getElementById("modal").style.display = "none";
+     }
+    </script>
+
+    <button class="back-btn" onclick="window.location.href='/'">返回首頁</button>
+    <button class="back-btn" onclick="history.back()"> 回上一頁</button>
+</body>
+</html>
