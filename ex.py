@@ -32,8 +32,8 @@ def tech(): # <--- 這個函數名稱是關鍵！
     # 渲染 ex.html
     return render_template('te.html')
 
+import os
 
-# 運行應用程式 (只有在直接運行此檔案時才會執行)
-if __name__ == '__main__':
-    # 啟用調試模式 (debug=True)
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
