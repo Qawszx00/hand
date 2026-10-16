@@ -1,0 +1,142 @@
+* { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Microsoft JhengHei", sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .page {
+      max-width: 1500px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .panel {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      min-height: 740px;
+    }
+
+    h2 {
+      margin: 0 0 16px;
+      font-size: 24px;
+    }
+
+    .video-box {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #0f172a;
+      border-radius: 14px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    video, canvas {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    #snapshotCanvas {
+      display: none;
+    }
+
+    .placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+      font-size: 26px;
+      text-align: center;
+      padding: 24px;
+      pointer-events: none;
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+
+    button {
+      border: none;
+      border-radius: 12px;
+      padding: 13px 18px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .primary { background: #2563eb; color: white; }
+    .danger { background: #ef4444; color: white; }
+    .record { background: #7c3aed; color: white; }
+    .speak { background: #059669; color: white; }
+    .upload { background: #f59e0b; color: white; }
+
+    .text-box {
+      min-height: 300px;
+      border: 2px dashed #cbd5e1;
+      border-radius: 14px;
+      padding: 28px;
+      background: #f8fafc;
+      font-size: 34px;
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+
+    .status {
+      margin-top: 18px;
+      font-size: 18px;
+      color: #475569;
+      min-height: 28px;
+    }
+
+    .hint {
+      margin-top: 14px;
+      color: #64748b;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .upload-box {
+      margin-top: 26px;
+      padding-top: 22px;
+      border-top: 1px solid #e5e7eb;
+    }
+
+    input[type="file"] {
+      font-size: 16px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 980px) {
+      .grid { grid-template-columns: 1fr; }
+      .panel { min-height: auto; }
+      .text-box { font-size: 28px; min-height: 220px; }
+    }

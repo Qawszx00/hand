@@ -1,0 +1,67 @@
+
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>動靜態手語辨識</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <div class="page">
+    <div class="grid">
+      <section class="panel">
+        <h2>左邊：鏡頭動態手語辨識</h2>
+
+        <div class="video-box">
+          <video id="video" autoplay playsinline muted></video>
+          <canvas id="snapshotCanvas"></canvas>
+          <div id="cameraPlaceholder" class="placeholder">鏡頭尚未開啟</div>
+        </div>
+
+        <div class="btn-row">
+          <button id="startCameraBtn" class="primary">開啟鏡頭</button>
+          <button id="recordGestureBtn" class="record" disabled>錄製 30 幀辨識</button>
+          <button id="stopCameraBtn" class="danger" disabled>關閉鏡頭</button>
+        </div>
+
+        <div class="hint">
+          使用方式：開啟鏡頭後，按「錄製 30 幀辨識」，系統會連續收集手部動作並送出辨識。
+        </div>
+
+        <div class="upload-box">
+          <h2>圖片靜態手語辨識</h2>
+          <input id="imageInput" type="file" accept="image/*">
+          <div class="btn-row">
+            <button id="uploadImageBtn" class="upload">上傳圖片辨識</button>
+          </div>
+          <div class="hint">
+            圖片會自動轉成 30 幀靜態序列，所以可以和動態模型共用。
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>右邊：辨識結果與語音功能</h2>
+
+        <div id="resultBox" class="text-box">尚未產生文字</div>
+        <div id="statusText" class="status"></div>
+
+        <div class="btn-row">
+          <button id="recordVoiceBtn" class="record">語音轉文字</button>
+          <button id="speakTextBtn" class="speak">播放文字</button>
+        </div>
+
+        <div class="hint">
+          語音轉文字：把說話內容顯示到文字框。<br>
+          播放文字：把辨識結果用語音念出來。
+        </div>
+      </section>
+    </div>
+  </div>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
