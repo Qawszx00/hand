@@ -1,4 +1,4 @@
-適用於專題：智慧手語人像轉語音系統
+適用於專題：智慧手語人像轉語音系統 <br>
 需使用虛擬環境 (mp_env\Scripts\activate) 
 插件安裝:
 pip install torch torchvision torchaudio
